@@ -13,7 +13,7 @@ npm install
 ```
 2. Create `.env.local` in the project root:
 ```bash
-MONGODB_URI="mongodb+srv://<user>:<password>@<cluster>/<db>?retryWrites=true&w=majority"
+MONGODB_URI="<mongodb-cluster-url>"
 NEXTAUTH_SECRET="<a-long-random-string>"
 NEXTAUTH_URL="http://localhost:3000"
 ```
@@ -48,5 +48,4 @@ npm run dev
 - Add comments on `/blog/[id]`
 
 ## Notes
-- Uploaded images are stored locally under `public/uploads`. For production, switch to cloud storage (S3, Cloudinary, etc.).
 - Ensure environment variables are set in hosting environment.
