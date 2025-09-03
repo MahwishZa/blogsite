@@ -1,6 +1,7 @@
+'use client'
+
 import BlogPostCard from '@/components/blogcard'
 
-export const dynamic = 'force-dynamic'
 async function getPosts() {
   const res = await fetch('http://localhost:3000/api/posts', { cache: 'no-store' }) // Or use your deployed URL
   if (!res.ok) return []
