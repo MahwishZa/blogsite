@@ -98,8 +98,9 @@ export default function Comments({ postId }) {
                     <FiSend className="w-5 h-5" />
                 </button>
             </form>
+            
             {comments.map((comment) => (
-                <div key={comment._id} className="flex items-start mb-6">
+                <div key={comment._id} className="flex items-start mb-6 card-fade-in">
                     <div className="w-10 h-10 rounded-full bg-neutral-200 flex items-center justify-center font-semibold">
                         {comment.userName?.charAt(0)}
                     </div>
