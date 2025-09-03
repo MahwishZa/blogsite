@@ -14,9 +14,11 @@ export default function Header() {
     const pathname = usePathname()
     const isDashboard = pathname?.startsWith('/dashboard')
     const isAuth = pathname?.startsWith('/auth')
+
     useEffect(() => {
         document.body.style.overflow = isSidebarOpen ? 'hidden' : 'auto'
     }, [isSidebarOpen])
+
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth >= 768) {
@@ -26,9 +28,11 @@ export default function Header() {
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
     }, [])
+
     const toggleSidebar = () => {
         setIsSidebarOpen((prev) => !prev)
     }
+
     const handleSignOut = async () => {
         await signOut({ redirect: true, callbackUrl: '/' })
     }
@@ -36,7 +40,7 @@ export default function Header() {
     return (
         <nav className="bg-transparent relative z-50">
             <div className="max-w-6xl mx-auto p-6 flex justify-between items-center">
-                <Link href="/" className="logo text-base md:text-xl font-bold font-black">
+                <Link href="/" className="logo text-base md:text-xl font-bold font-black transition-opacity hover:opacity-80">
                     Dev Ninja
                 </Link>
                 {!isAuth && (
@@ -82,6 +86,7 @@ export default function Header() {
                     </>
                 )}
             </div>
+            
             {!isAuth && !isDashboard && (
                 <>
                     <div
