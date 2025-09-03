@@ -10,6 +10,7 @@ export default function HomeClient() {
   const searchParams = useSearchParams();
   const currentPage = parseInt(searchParams.get('page')) || 1;
   const searchTerm = (searchParams.get('search') || '').toLowerCase();
+  
   const [allPosts, setAllPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -42,7 +43,18 @@ export default function HomeClient() {
       <p className="text-base text-center">A blog about development, design, and programming</p>
       <SearchBar />
       {loading ? (
-        <div className="text-center py-12">Loading...</div>
+        <div className="max-w-6xl mx-auto py-6 grid md:grid-cols-2 gap-10">
+          {[0,1].map((i) => (
+            <div key={i} className="p-6 w-full card-fade-in">
+              <div className="skeleton w-full h-64 mb-6" />
+              <div className="skeleton w-24 h-5 mb-3" />
+              <div className="skeleton w-3/4 h-6 mb-2" />
+              <div className="skeleton w-1/2 h-4 mb-4" />
+              <div className="skeleton w-full h-4 mb-2" />
+              <div className="skeleton w-2/3 h-4" />
+            </div>
+          ))}
+        </div>
       ) : (
         <div className="max-w-6xl mx-auto py-6 grid md:grid-cols-2 gap-10">
           {paginatedPosts.length > 0 ? (
