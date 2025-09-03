@@ -9,12 +9,17 @@ export default function BlogListPage() {
   const [loading, setLoading] = useState(true)
   
   useEffect(() => {
+    let isMounted = true
     const load = async () => {
       const res = await fetch('/api/posts', { cache: 'no-store' })
-      if (res.ok) setPosts(await res.json())
-      setLoading(false)
+      if (res.ok) {
+        const data = await res.json()
+        if (isMounted) setPosts(data)
+      }
+      if (isMounted) setLoading(false)
     }
     load()
+    return () => { isMounted = false }
   }, [])
 
   return (
