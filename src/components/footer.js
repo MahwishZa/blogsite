@@ -1,8 +1,5 @@
-'use client'
-
 import Newsletter from "./newsletter";
 
-{/* Footer */ }
 export default function Footer() {
     const year = new Date().getFullYear();
     return (
