@@ -32,7 +32,7 @@ export default function SigninPage() {
 
     return (
         <div className="max-w-6xl mx-auto p-6">
-            <div className="box px-8 py-10 rounded leading-relaxed">
+            <div className="box px-8 py-10 rounded leading-relaxed card-fade-in">
                 <h2 className="font-black text-5xl text-white text-center mb-4">
                     Sign In
                 </h2>
