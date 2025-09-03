@@ -4,10 +4,11 @@ import { useEffect, useState, Suspense } from 'react'
 import BlogPostCard from '@/components/blogcard'
 import SearchBar from '@/components/searchbar'
 
+export const dynamic = 'force-dynamic'
+
 export default function BlogListPage() {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
-  
   useEffect(() => {
     let isMounted = true
     const load = async () => {
