@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import BlogPostCard from "@/components/blogcard";
 import Pagination from "@/components/pagination";
@@ -41,7 +41,9 @@ export default function Home() {
       <p className="text-base text-center">
         A blog about development, design, and programming
       </p>
-      <SearchBar />
+      <Suspense fallback={<div className="text-center">Loading search...</div>}>
+        <SearchBar />
+      </Suspense>
       {loading ? (
         <div className="text-center py-12">Loading...</div>
       ) : (
