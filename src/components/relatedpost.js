@@ -16,7 +16,7 @@ export default function RelatedPost({ authorName, currentPostId, posts }) {
             ) : (
                 <div className="space-y-6">
                     {relatedPosts.map((post) => (
-                        <Link href={`/blog/${post.id}`} key={post.id} className="flex gap-4 group">
+                        <Link href={`/blog/${post.id}`} key={post.id} className="flex gap-4 group card-fade-in">
                             <div className="w-48 h-32 flex-shrink-0 relative">
                                 <Image
                                     src={post.coverImage}
@@ -27,6 +27,7 @@ export default function RelatedPost({ authorName, currentPostId, posts }) {
                                     priority
                                 />
                             </div>
+                            
                             <div className='pl-2 ml-2'>
                                 <h3 className="font-medium text-lg leading-snug group-hover:underline">
                                     {post.title}
