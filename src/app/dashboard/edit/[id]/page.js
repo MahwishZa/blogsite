@@ -1,4 +1,5 @@
 'use client';
+
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FiSave, FiTrash2 } from 'react-icons/fi'
@@ -7,7 +8,6 @@ import { useToast } from '@/components/ToastProvider'
 export default function EditPage() {
     const router = useRouter();
     const { id } = useParams();
-
     const [form, setForm] = useState(null);
     const [uploading, setUploading] = useState(false)
     const toast = useToast()
@@ -67,7 +67,6 @@ export default function EditPage() {
             }
         }
     };
-
     if (!form) return null;
 
     return (
