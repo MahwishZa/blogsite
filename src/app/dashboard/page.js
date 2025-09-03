@@ -66,7 +66,7 @@ export default function DashboardPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                <div className="md:col-span-2 bg-white rounded shadow p-4 md:p-6">
+                <div className="md:col-span-2 bg-white rounded shadow p-4 md:p-6 card-fade-in">
                     <div className="flex items-center gap-2 mb-4">
                         <FiBookOpen className="w-6 h-6 text-[#000538]" />
                         <h2 className="text-xl font-semibold">Your Blogs</h2>
@@ -101,7 +101,7 @@ export default function DashboardPage() {
                     )}
                 </div>
 
-                <aside className="bg-white rounded shadow p-4 md:p-6">
+                <aside className="bg-white rounded shadow p-4 md:p-6 card-fade-in">
                     <div className="flex items-center gap-2 mb-4">
                         <FiUser className="w-6 h-6 text-[#000538]" />
                         <h3 className="text-xl font-semibold">Author Profile</h3>
