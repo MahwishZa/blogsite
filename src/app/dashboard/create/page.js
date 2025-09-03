@@ -82,7 +82,9 @@ export default function CreatePage() {
                     }} />
                     {uploading && <span className="text-sm text-gray-500">Uploading...</span>}
                     {form.coverImage && (
-                        <img src={form.coverImage} alt="cover" className="w-full h-48 object-cover rounded border" />
+                        <div className="relative w-full h-48">
+                            <img src={form.coverImage} alt="cover" className="w-full h-full object-cover rounded border" />
+                        </div>
                     )}
                 </div>
                 <textarea
