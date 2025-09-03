@@ -1,5 +1,3 @@
-'use client'
-
 {/* About Author */ }
 export default function AboutCard({ authorName, aboutAuthor }) {
     const cardClass = "flex flex-col md:flex-row items-center md:items-start gap-4 bg-neutral-100 p-6 rounded border w-full";
