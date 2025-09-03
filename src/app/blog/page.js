@@ -1,5 +1,3 @@
-'use client'
-
 import BlogPostCard from '@/components/blogcard'
 
 async function getPosts() {
