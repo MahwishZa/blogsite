@@ -31,7 +31,6 @@ export default function BlogPostPage() {
             </section>
         );
     }
-
     if (!post) {
         return (
             <section className="mx-auto max-w-6xl p-6">
@@ -77,7 +76,7 @@ export default function BlogPostPage() {
                 <p className="font-medium text-base my-4 py-4">{excerpt}</p>
                 <p className="mt-2 text-sm whitespace-pre-wrap">{content}</p>
             </section>
-            <section className="mt-12">
+            <section className="mt-12 card-fade-in">
                 <AboutCard authorName={authorName} aboutAuthor={authorAbout || ""} />
             </section>
             <section className="mt-12">
