@@ -1,4 +1,5 @@
 'use client';
+
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FiSave } from 'react-icons/fi'
@@ -7,15 +8,8 @@ import { useToast } from '@/components/ToastProvider'
 export default function CreatePage() {
     const router = useRouter();
     const toast = useToast()
-    const [form, setForm] = useState({
-        title: '',
-        category: '',
-        readTime: 5,
-        content: '',
-        coverImage: ''
-    });
+    const [form, setForm] = useState({ title: '', category: '', readTime: 5, content: '', coverImage: '' });
     const [uploading, setUploading] = useState(false)
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const res = await fetch('/api/posts', {
