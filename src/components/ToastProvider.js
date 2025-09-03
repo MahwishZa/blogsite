@@ -2,8 +2,7 @@
 
 import { createContext, useCallback, useContext, useMemo, useState } from 'react'
 
-const ToastCtx = createContext({ add: () => {} })
-
+const ToastCtx = createContext({ add: () => { } })
 export function useToast() {
   return useContext(ToastCtx)
 }
@@ -15,7 +14,6 @@ export default function ToastProvider({ children }) {
     setToasts((t) => [...t, { id, message, kind }])
     if (timeout) setTimeout(() => setToasts((t) => t.filter((x) => x.id !== id)), timeout)
   }, [])
-
   const value = useMemo(() => ({ add }), [add])
 
   return (
@@ -25,13 +23,12 @@ export default function ToastProvider({ children }) {
         {toasts.map(t => (
           <div
             key={t.id}
-            className={`px-4 py-3 rounded shadow text-white border ${
-              t.kind === 'error'
+            className={`px-4 py-3 rounded shadow text-white border transition-transform duration-200 ease-out animate-[toastIn_200ms_ease-out_forwards] ${t.kind === 'error'
                 ? 'bg-red-600 border-red-700'
                 : t.kind === 'warning'
-                ? 'bg-amber-500 border-amber-600'
-                : 'bg-[#000538] border-[#000538]'
-            }`}
+                  ? 'bg-amber-500 border-amber-600'
+                  : 'bg-[#000538] border-[#000538]'
+              }`}
           >
             {t.message}
           </div>
@@ -40,5 +37,3 @@ export default function ToastProvider({ children }) {
     </ToastCtx.Provider>
   )
 }
-
-
