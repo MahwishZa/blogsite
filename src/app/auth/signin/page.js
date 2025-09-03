@@ -11,7 +11,6 @@ export default function SigninPage() {
     const [error, setError] = useState('');
     const router = useRouter();
     const toast = useToast();
-
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
