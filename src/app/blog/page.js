@@ -1,12 +1,13 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import BlogPostCard from '@/components/blogcard'
 import SearchBar from '@/components/searchbar'
 
 export default function BlogListPage() {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
+  
   useEffect(() => {
     const load = async () => {
       const res = await fetch('/api/posts', { cache: 'no-store' })
@@ -18,7 +19,9 @@ export default function BlogListPage() {
 
   return (
     <section className="mx-auto max-w-6xl p-6 flex flex-col gap-4">
-      <SearchBar />
+      <Suspense fallback={<div className="text-center">Loading search...</div>}>
+        <SearchBar />
+      </Suspense>
       {loading ? (
         <div className="text-center py-12">Loading...</div>
       ) : (
@@ -31,5 +34,3 @@ export default function BlogListPage() {
     </section>
   )
 }
-
-
