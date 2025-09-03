@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Dev Ninja Blogsite
 
-## Getting Started
+A Next.js 15 blog with authentication (NextAuth), MongoDB (Mongoose), dynamic posts and comments, image uploads, and a responsive dashboard.
 
-First, run the development server:
+## Prerequisites
+- Node 18+
+- MongoDB connection string
 
+## Setup
+1. Install dependencies:
+```bash
+npm install
+```
+2. Create `.env.local` in the project root:
+```bash
+MONGODB_URI="mongodb+srv://<user>:<password>@<cluster>/<db>?retryWrites=true&w=majority"
+NEXTAUTH_SECRET="<a-long-random-string>"
+NEXTAUTH_URL="http://localhost:3000"
+```
+3. Run dev server:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+- Auth: Credentials login with NextAuth; protected `/dashboard/*` via middleware
+- Posts: CRUD via REST APIs backed by MongoDB
+- Comments: Create/edit/delete comments on posts for authenticated users
+- Images: Upload images to `public/uploads` via `/api/upload`
+- UI: Responsive Dashboard, Create, Edit; category select options; session-aware navbar
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Key Endpoints
+- Auth: `POST /api/auth/[...nextauth]` (NextAuth handler)
+- Signup: `POST /api/auth/signup`
+- Posts: `GET/POST /api/posts`, `GET/PATCH/DELETE /api/posts/:id`
+- Comments: `GET/POST /api/posts/:id/comments`, `PATCH/DELETE /api/posts/:id/comments/:commentid`
+- Upload: `POST /api/upload` (multipart/form-data, field: `file`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
+- `src/app` – App Router pages and API routes
+- `src/models` – Mongoose models (`User`, `Post`, `Comment`)
+- `src/lib` – DB and auth configuration
+- `src/components` – UI components
 
-## Learn More
+## Usage
+- Sign up at `/auth/signup`, then sign in at `/auth/signin`
+- Create/edit posts at `/dashboard`
+- Add comments on `/blog/[id]`
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+- Uploaded images are stored locally under `public/uploads`. For production, switch to cloud storage (S3, Cloudinary, etc.).
+- Ensure environment variables are set in hosting environment.

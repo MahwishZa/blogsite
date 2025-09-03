@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #5F5B58;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Merriweather', serif;
+    color: #000538;
+}
+
+p {
+    text-align: justify;
+}
+
+.box {
+    background-color: #283a61;
+    color: white;
+}
+
+.btn {
+    background-color: #283a61;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #000538;
+    color: white;
+}
+
+.btn-dark {
+    background-color: #000538;
+    color: white;
+}
+
+.btn-dark:hover {
+    background-color: black;
+    color: white;
+}
+
+.tag {
+    background-color: #283a61;
+    color: white;
+    display: inline-block;
+}
+
+span {
+    color: #2F2F2F;
+}
+
+.logo {
+    font-family: 'Merriweather', serif;
+    color: #000538;
+}
