@@ -4,7 +4,7 @@ import Link from 'next/link'
 { /* Blog Post Card */ }
 export default function BlogPostCard({ coverImage, category, title, date, readTime, excerpt, authorName, id }) {
     return (
-        <Link href={`/blog/${id}`} className="max-w-6xl mx-auto p-6 flex flex-col gap-6 transition-colors w-full">
+        <Link href={`/blog/${id}`} className="max-w-6xl mx-auto p-6 flex flex-col gap-6 transition-colors w-full card-fade-in">
             <div className="relative h-64 w-full">
                 <Image
                     src={coverImage}
