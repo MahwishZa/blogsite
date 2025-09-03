@@ -1,4 +1,4 @@
-'use client'
+// static template utilities (if used)
 
 export default function getAllPosts() {
   return [
